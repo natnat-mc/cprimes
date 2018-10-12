@@ -1,17 +1,17 @@
 NAME = primes
 
 CC = gcc
-LD = ld
+LD = gcc
 
 CCFLAGS = -O2 -Wall -Wextra
-LDFLAGS = -lpthread
+LDLIBS = -lpthread -lc
 
-.PHONY: all run clean mrproper
+.PHONY: all run clean mrproper rebuild
 
 all: $(NAME)
 
 $(NAME): main.o common.o multithread.o monothread.o
-	$(LD) $(LDFLAGS) -o $@ $^
+	$(LD) -o $@ $^ $(LDLIBS)
 
 main.o: main.c multithread.h monothread.h common.h
 	$(CC) $(CCFLAGS) -o $@ -c $<
@@ -30,6 +30,8 @@ clean:
 
 mrproper: clean
 	rm -f $(NAME)
+
+rebuild: mrproper all
 
 run: $(NAME)
 	./$(NAME)
