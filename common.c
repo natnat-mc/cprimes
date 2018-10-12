@@ -22,7 +22,7 @@ vector_t vector_create(size_t initialSize) {
 	if(!vector) return (vector_t) 0;
 	
 	// array allocation
-	vector_t* items=calloc(initialSize, sizeof(prime_t));
+	prime_t* items=calloc(initialSize, sizeof(prime_t));
 	if(!items) {
 		free(vector);
 		return (vector_t) 0;
