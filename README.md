@@ -7,5 +7,6 @@ A prime calculator, in C.
 - Eventually run with CUDA
 
 ## Its problems
-- It indexes files with `int` instead of `off_t` for now, so it's limited to 2G
+- It indexes files with `int` instead of `off_t` for now, so it's (maybe) limited to 2G
 - It uses POSIX functions, so it needs POSIX compatibility (but honestly, you should be ok unless you run Windows)
+- It reads and writes files prime by prime, which is slow

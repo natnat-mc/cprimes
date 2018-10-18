@@ -41,6 +41,7 @@ int main(int argc, char** argv) {
 	}
 	printf("\tDone.\n");
 	
+#if defined DUMP_PRIMES
 	// dump primes
 	printf("Dumping primes:\n");
 	for(size_t i=0; i<vector_length(primes); i++) {
@@ -50,6 +51,7 @@ int main(int argc, char** argv) {
 		if(i%4==0) printf("\n");
 	}
 	printf("\n");
+#endif
 	
 	// run the thing
 	printf("Starting with thread count: %d\n", threads);

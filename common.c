@@ -119,7 +119,7 @@ int readDisk(void) {
 		perror("open");
 		return -1;
 	}
-	int size=lseek(primesFd, 0, SEEK_END);
+	off_t size=lseek(primesFd, 0, SEEK_END);
 	lseek(primesFd, 0, SEEK_SET);
 	if(size==-1) {
 		perror("lseek");
@@ -147,7 +147,7 @@ int readDisk(void) {
 
 int updateDisk(void) {
 	// seek to the end of file
-	int size=lseek(primesFd, 0, SEEK_END);
+	off_t size=lseek(primesFd, 0, SEEK_END);
 	if(size==-1) return -1;
 	
 	// write new primes
